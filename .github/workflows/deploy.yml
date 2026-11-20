@@ -33,8 +33,12 @@ jobs:
           cache: npm
       - name: Установить зависимости
         run: npm ci
+      - name: Запустить тесты
+        run: npm test
       - name: Собрать сайт
         run: npm run build
+      - name: Копия для прямых ссылок
+        run: cp dist/index.html dist/404.html
       - name: Упаковать папку dist
         uses: actions/upload-pages-artifact@v5
         with:
